@@ -5,11 +5,11 @@ Monitor/Decision making crises center for smart contracts
 ### Roadmap
 
 #### Sunday
-- [ ] Setup westaysafe.com
-  - [ ] Setup postgres on neon.tech
-  - [ ] Setup redis on upstash
-  - [ ] Setup phoenix project on fly
-  - [ ] Setup domain westaysafe.com pointing to fly
+- [x] Setup westaysafe.com
+  - [x] Setup postgres on neon.tech
+  - [x] Setup redis on upstash (created a redis db, but didn't make it available yet in code -> only if needed)
+  - [x] Setup phoenix project on fly
+  - [x] Setup domain westaysafe.com pointing to fly (DNS takes time, but should be good tomorrow)
 
 #### Monday
 - [ ] Favicon
