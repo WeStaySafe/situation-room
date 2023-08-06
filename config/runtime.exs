@@ -39,7 +39,7 @@ if config_env() == :prod do
     ssl_opts: [
       verify: :verify_none,
       server_name_indication: database_hostname
-    ]
+    ],
     url: database_url,
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 

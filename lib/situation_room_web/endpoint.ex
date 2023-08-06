@@ -7,7 +7,7 @@ defmodule SituationRoomWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_situation_room_key",
-    signing_salt: "mXbqsHWp",
+    signing_salt: "egwxBPRT",
     same_site: "Lax"
   ]
 

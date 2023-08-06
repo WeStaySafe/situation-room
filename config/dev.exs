@@ -14,8 +14,8 @@ config :situation_room, SituationRoom.Repo,
 # debugging and code reloading.
 #
 # The watchers configuration can be used to run external
-# watchers to your application. For example, we use it
-# with esbuild to bundle .js and .css sources.
+# watchers to your application. For example, we can use it
+# to bundle .js and .css sources.
 config :situation_room, SituationRoomWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
@@ -23,7 +23,7 @@ config :situation_room, SituationRoomWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "cExUqe2Iu+5f5tHQkDZufnm50FihfRLXWHOKSPZ2Cxg4ioWM+wywes5emlNohhp4",
+  secret_key_base: "4OOUsscIIipkGr/FcuTtK57kOgvakR55DWSXAgO/IBPM5mN0VynOzX7CiKKtEuLQ",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}

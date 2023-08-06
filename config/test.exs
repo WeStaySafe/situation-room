@@ -17,7 +17,7 @@ config :situation_room, SituationRoom.Repo,
 # you can enable the server option below.
 config :situation_room, SituationRoomWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "DnM5P9TEJPg4Xle01f6ab4NqKvTBFrXC2GJPehbLWDHRl6vxTXwh4g3TPt6RX2Vq",
+  secret_key_base: "2pqN8SCcHID7/90dbL3pJ5QSLyPvQm3o936uxbH4MfLgjlUbeytJGJMPZkA1ob+8",
   server: false
 
 # In test we don't send emails.
