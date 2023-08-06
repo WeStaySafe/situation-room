@@ -9,7 +9,7 @@ Monitor/Decision making crises center for smart contracts
   - [x] Setup postgres on neon.tech
   - [x] Setup redis on upstash (created a redis db, but didn't make it available yet in code -> only if needed)
   - [x] Setup phoenix project on fly
-  - [x] Setup domain westaysafe.com pointing to fly (DNS takes time, but should be good tomorrow)
+  - [x] Setup domain westaysafe.com pointing to fly
 
 #### Monday
 - [ ] Favicon
