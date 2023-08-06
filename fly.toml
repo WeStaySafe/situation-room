@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for westaysafe on 2023-08-06T23:38:23+02:00
+# fly.toml app configuration file generated for westaysafe-com on 2023-08-07T00:21:37+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "westaysafe"
+app = "westaysafe-com"
 primary_region = "fra"
 kill_signal = "SIGTERM"
 swap_size_mb = 512
@@ -14,7 +14,7 @@ swap_size_mb = 512
   release_command = "/app/bin/migrate"
 
 [env]
-  PHX_HOST = "westaysafe.fly.dev"
+  PHX_HOST = "westaysafe-com.fly.dev"
   PORT = "8080"
 
 [http_service]
