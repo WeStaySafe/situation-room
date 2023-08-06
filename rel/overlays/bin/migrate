@@ -1,0 +1,3 @@
+#!/bin/sh
+cd -P -- "$(dirname -- "$0")"
+exec ./situation_room eval SituationRoom.Release.migrate
