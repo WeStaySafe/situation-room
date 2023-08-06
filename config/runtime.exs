@@ -28,13 +28,20 @@ if config_env() == :prod do
       For example: ecto://USER:PASS@HOST/DATABASE
       """
 
-  maybe_ipv6 = if System.get_env("ECTO_IPV6"), do: [:inet6], else: []
+  database_hostname =
+    System.get_env("DATABASE_HOSTNAME") ||
+      raise """
+      environment variable DATABASE_HOSTNAME is missing.
+      """
 
   config :situation_room, SituationRoom.Repo,
-    # ssl: true,
+    ssl: true,
+    ssl_opts: [
+      verify: :verify_none,
+      server_name_indication: database_hostname
+    ]
     url: database_url,
-    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-    socket_options: maybe_ipv6
+    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
   # The secret key base is used to sign/encrypt cookies and other secrets.
   # A default value is used in config/dev.exs and config/test.exs but you
