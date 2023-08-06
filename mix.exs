@@ -19,7 +19,7 @@ defmodule SituationRoom.MixProject do
   def application do
     [
       mod: {SituationRoom.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ssl]
     ]
   end
 
