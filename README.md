@@ -1,18 +1,53 @@
-# SituationRoom
+# Situation Room
 
-To start your Phoenix server:
+Monitor/Decision making crises center for smart contracts
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+### Roadmap
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+#### Sunday
+- [ ] Setup westaysafe.com
+  - [ ] Setup postgres on neon.tech
+  - [ ] Setup redis on upstash
+  - [ ] Setup phoenix project on fly
+  - [ ] Setup domain westaysafe.com pointing to fly
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+#### Monday
+- [ ] Favicon
+- [ ] Tailwind setup 
+- [ ] Install setup Oban 
+- [ ] Create data model with generators
+- [ ] Create routes with generators
 
-## Learn more
+#### Tuesday
+- [ ] Create sign in flow 
+  - [ ] World app flow (https://hexdocs.pm/openid_connect/readme.html)
+  - [ ] Backup strategy?  
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+### Wednesday/Thursday
+- [ ] Register chains (admin only)
+- [ ] Register contract flow
+  - [ ] With events/logs
+  - [ ] Potentially with alerts if time left
+- [ ] Smart Contract event/log monitor/indexer
+  - [ ] Websocket flow with supervisor if websocket 
+  - [ ] Cronjob with quantum checking if we caught all the logs/events from the registered contracts
+
+#### Friday
+- [ ] Notifications/alerts
+  - [ ] Email first
+    - [ ] If someone initiates a transaction delay -> to the transaction initiator
+    - [ ] If delay is over without follow up action -> to the transaction initiator
+    - [ ] If someone does a transaction block vote -> to all registered/invested protocol members
+    - [ ] Result transaction block vote -> to all registered/invested protocol members
+    - [ ] If someone does a smart contract/protocol circuit breaker vote -> to all registered/invested protocol members
+    - [ ] Result smart contract/protocol circuit breaker vote -> to all registered/invested protocol members
+
+#### Saterday
+- [ ] Voting UI
+  - [ ] Liveview voting
+  - [ ] Consensus liveview visualisation (https://github.com/mindok/contex ?)
+
+#### Sunday Demo
+- [ ] Show delay flow
+- [ ] Show block flow
+- [ ] Show circuit breaker flow
