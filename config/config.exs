@@ -29,6 +29,12 @@ config :situation_room, SituationRoomWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :situation_room, SituationRoom.Mailer, adapter: Swoosh.Adapters.Local
 
+# Oban config
+config :situation_room, Oban,
+  repo: SituationRoom.Repo,
+  plugins: [Oban.Plugins.Pruner],
+  queues: [default: 10]
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",

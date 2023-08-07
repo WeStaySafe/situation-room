@@ -23,6 +23,8 @@ config :situation_room, SituationRoomWeb.Endpoint,
 # In test we don't send emails.
 config :situation_room, SituationRoom.Mailer, adapter: Swoosh.Adapters.Test
 
+config :situation_room, Oban, testing: :inline
+
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
 

@@ -17,7 +17,9 @@ defmodule SituationRoom.Application do
       # Start Finch
       {Finch, name: SituationRoom.Finch},
       # Start the Endpoint (http/https)
-      SituationRoomWeb.Endpoint
+      SituationRoomWeb.Endpoint,
+      # Start Oban
+      {Oban, Application.fetch_env!(:situation_room, Oban)}
       # Start a worker by calling: SituationRoom.Worker.start_link(arg)
       # {SituationRoom.Worker, arg}
     ]
