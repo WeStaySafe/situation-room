@@ -16,7 +16,7 @@ Monitor/Decision making crises center for smart contracts
 - [x] Tailwind setup 
 - [x] Install setup Oban 
 - [x] Create data model with generators
-- [ ] Create routes with generators
+- [x] Create routes with generators
 
 #### Tuesday
 - [ ] Create sign in flow 
