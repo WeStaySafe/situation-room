@@ -68,4 +68,62 @@ defmodule SituationRoom.ChainsTest do
       assert %Ecto.Changeset{} = Chains.change_network_information(network_information)
     end
   end
+
+  describe "contract_monitors" do
+    alias SituationRoom.Chains.ContractMonitor
+
+    import SituationRoom.ChainsFixtures
+
+    @invalid_attrs %{contract_address: nil, contract_name: nil, contract_origin_url: nil}
+
+    test "list_contract_monitors/0 returns all contract_monitors" do
+      contract_monitor = contract_monitor_fixture()
+      assert Chains.list_contract_monitors() == [contract_monitor]
+    end
+
+    test "get_contract_monitor!/1 returns the contract_monitor with given id" do
+      contract_monitor = contract_monitor_fixture()
+      assert Chains.get_contract_monitor!(contract_monitor.id) == contract_monitor
+    end
+
+    test "create_contract_monitor/1 with valid data creates a contract_monitor" do
+      valid_attrs = %{contract_address: "some contract_address", contract_name: "some contract_name", contract_origin_url: "some contract_origin_url"}
+
+      assert {:ok, %ContractMonitor{} = contract_monitor} = Chains.create_contract_monitor(valid_attrs)
+      assert contract_monitor.contract_address == "some contract_address"
+      assert contract_monitor.contract_name == "some contract_name"
+      assert contract_monitor.contract_origin_url == "some contract_origin_url"
+    end
+
+    test "create_contract_monitor/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Chains.create_contract_monitor(@invalid_attrs)
+    end
+
+    test "update_contract_monitor/2 with valid data updates the contract_monitor" do
+      contract_monitor = contract_monitor_fixture()
+      update_attrs = %{contract_address: "some updated contract_address", contract_name: "some updated contract_name", contract_origin_url: "some updated contract_origin_url"}
+
+      assert {:ok, %ContractMonitor{} = contract_monitor} = Chains.update_contract_monitor(contract_monitor, update_attrs)
+      assert contract_monitor.contract_address == "some updated contract_address"
+      assert contract_monitor.contract_name == "some updated contract_name"
+      assert contract_monitor.contract_origin_url == "some updated contract_origin_url"
+    end
+
+    test "update_contract_monitor/2 with invalid data returns error changeset" do
+      contract_monitor = contract_monitor_fixture()
+      assert {:error, %Ecto.Changeset{}} = Chains.update_contract_monitor(contract_monitor, @invalid_attrs)
+      assert contract_monitor == Chains.get_contract_monitor!(contract_monitor.id)
+    end
+
+    test "delete_contract_monitor/1 deletes the contract_monitor" do
+      contract_monitor = contract_monitor_fixture()
+      assert {:ok, %ContractMonitor{}} = Chains.delete_contract_monitor(contract_monitor)
+      assert_raise Ecto.NoResultsError, fn -> Chains.get_contract_monitor!(contract_monitor.id) end
+    end
+
+    test "change_contract_monitor/1 returns a contract_monitor changeset" do
+      contract_monitor = contract_monitor_fixture()
+      assert %Ecto.Changeset{} = Chains.change_contract_monitor(contract_monitor)
+    end
+  end
 end

@@ -3,7 +3,7 @@ defmodule SituationRoom.Repo.Migrations.CreateNetworkInformations do
 
   def change do
     create table(:network_informations) do
-      add :chain_id, :integer
+      add :chain_id, :integer, primary_key: true
       add :currency_symbol, :string
       add :name, :string
       add :rpc_endpoint, :string

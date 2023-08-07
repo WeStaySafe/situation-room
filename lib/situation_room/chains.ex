@@ -101,4 +101,100 @@ defmodule SituationRoom.Chains do
   def change_network_information(%NetworkInformation{} = network_information, attrs \\ %{}) do
     NetworkInformation.changeset(network_information, attrs)
   end
+
+  alias SituationRoom.Chains.ContractMonitor
+
+  @doc """
+  Returns the list of contract_monitors.
+
+  ## Examples
+
+      iex> list_contract_monitors()
+      [%ContractMonitor{}, ...]
+
+  """
+  def list_contract_monitors do
+    Repo.all(ContractMonitor)
+  end
+
+  @doc """
+  Gets a single contract_monitor.
+
+  Raises `Ecto.NoResultsError` if the Contract monitor does not exist.
+
+  ## Examples
+
+      iex> get_contract_monitor!(123)
+      %ContractMonitor{}
+
+      iex> get_contract_monitor!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_contract_monitor!(id), do: Repo.get!(ContractMonitor, id)
+
+  @doc """
+  Creates a contract_monitor.
+
+  ## Examples
+
+      iex> create_contract_monitor(%{field: value})
+      {:ok, %ContractMonitor{}}
+
+      iex> create_contract_monitor(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_contract_monitor(attrs \\ %{}) do
+    %ContractMonitor{}
+    |> ContractMonitor.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a contract_monitor.
+
+  ## Examples
+
+      iex> update_contract_monitor(contract_monitor, %{field: new_value})
+      {:ok, %ContractMonitor{}}
+
+      iex> update_contract_monitor(contract_monitor, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_contract_monitor(%ContractMonitor{} = contract_monitor, attrs) do
+    contract_monitor
+    |> ContractMonitor.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a contract_monitor.
+
+  ## Examples
+
+      iex> delete_contract_monitor(contract_monitor)
+      {:ok, %ContractMonitor{}}
+
+      iex> delete_contract_monitor(contract_monitor)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_contract_monitor(%ContractMonitor{} = contract_monitor) do
+    Repo.delete(contract_monitor)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking contract_monitor changes.
+
+  ## Examples
+
+      iex> change_contract_monitor(contract_monitor)
+      %Ecto.Changeset{data: %ContractMonitor{}}
+
+  """
+  def change_contract_monitor(%ContractMonitor{} = contract_monitor, attrs \\ %{}) do
+    ContractMonitor.changeset(contract_monitor, attrs)
+  end
 end

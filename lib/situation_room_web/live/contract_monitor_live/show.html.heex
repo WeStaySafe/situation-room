@@ -1,0 +1,28 @@
+<.header>
+  Contract monitor <%= @contract_monitor.id %>
+  <:subtitle>This is a contract_monitor record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/contract_monitors/#{@contract_monitor}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit contract_monitor</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Contract address"><%= @contract_monitor.contract_address %></:item>
+  <:item title="Contract name"><%= @contract_monitor.contract_name %></:item>
+  <:item title="Contract origin url"><%= @contract_monitor.contract_origin_url %></:item>
+</.list>
+
+<.back navigate={~p"/contract_monitors"}>Back to contract_monitors</.back>
+
+<.modal :if={@live_action == :edit} id="contract_monitor-modal" show on_cancel={JS.patch(~p"/contract_monitors/#{@contract_monitor}")}>
+  <.live_component
+    module={SituationRoomWeb.ContractMonitorLive.FormComponent}
+    id={@contract_monitor.id}
+    title={@page_title}
+    action={@live_action}
+    contract_monitor={@contract_monitor}
+    patch={~p"/contract_monitors/#{@contract_monitor}"}
+  />
+</.modal>

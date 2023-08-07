@@ -23,4 +23,20 @@ defmodule SituationRoom.ChainsFixtures do
 
     network_information
   end
+
+  @doc """
+  Generate a contract_monitor.
+  """
+  def contract_monitor_fixture(attrs \\ %{}) do
+    {:ok, contract_monitor} =
+      attrs
+      |> Enum.into(%{
+        contract_address: "some contract_address",
+        contract_name: "some contract_name",
+        contract_origin_url: "some contract_origin_url"
+      })
+      |> SituationRoom.Chains.create_contract_monitor()
+
+    contract_monitor
+  end
 end

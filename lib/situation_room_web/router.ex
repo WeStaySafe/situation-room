@@ -18,6 +18,13 @@ defmodule SituationRoomWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    live "/contract_monitors", ContractMonitorLive.Index, :index
+    live "/contract_monitors/new", ContractMonitorLive.Index, :new
+    live "/contract_monitors/:id/edit", ContractMonitorLive.Index, :edit
+
+    live "/contract_monitors/:id", ContractMonitorLive.Show, :show
+    live "/contract_monitors/:id/show/edit", ContractMonitorLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
