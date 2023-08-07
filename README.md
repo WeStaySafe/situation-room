@@ -21,10 +21,13 @@ Monitor/Decision making crises center for smart contracts
 #### Tuesday
 - [ ] Create sign in flow 
   - [ ] World app flow (https://hexdocs.pm/openid_connect/readme.html)
-  - [ ] Backup strategy?  
 
-### Wednesday/Thursday
-- [ ] Register chains (admin only)
+#### Wednesday (short day)
+
+- [ ] Styling
+
+### Thursday
+- [x] Register chains (through ssh to machine and use context)
 - [ ] Register contract flow
   - [ ] With events/logs
   - [ ] Potentially with alerts if time left
@@ -32,7 +35,7 @@ Monitor/Decision making crises center for smart contracts
   - [ ] Websocket flow with supervisor if websocket 
   - [ ] Cronjob with quantum checking if we caught all the logs/events from the registered contracts
 
-#### Friday
+#### Friday (short day)
 - [ ] Notifications/alerts
   - [ ] Email first
     - [ ] If someone initiates a transaction delay -> to the transaction initiator
