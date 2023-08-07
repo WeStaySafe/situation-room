@@ -12,7 +12,7 @@ Monitor/Decision making crises center for smart contracts
   - [x] Setup domain westaysafe.com pointing to fly
 
 #### Monday
-- [ ] Favicon
+- [X] Favicon
 - [x] Tailwind setup 
 - [ ] Install setup Oban 
 - [ ] Create data model with generators
