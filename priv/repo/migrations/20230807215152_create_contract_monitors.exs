@@ -3,10 +3,10 @@ defmodule SituationRoom.Repo.Migrations.CreateContractMonitors do
 
   def change do
     create table(:contract_monitors) do
-      add :contract_address, :string
+      add :contract_address, :string, null: false
       add :contract_name, :string
       add :contract_origin_url, :string
-      add :chain_id, references(:network_informations, with: [chain_id: :chain_id], on_delete: :delete_all)
+      add :chain_id, references(:network_informations, column: :chain_id, type: :integer, on_delete: :delete_all), null: false
       timestamps()
     end
 

@@ -17,7 +17,7 @@ defmodule SituationRoom.ChainsTest do
 
     test "get_network_information!/1 returns the network_information with given id" do
       network_information = network_information_fixture()
-      assert Chains.get_network_information!(network_information.id) == network_information
+      assert Chains.get_network_information!(network_information.chain_id) == network_information
     end
 
     test "create_network_information/1 with valid data creates a network_information" do
@@ -54,13 +54,13 @@ defmodule SituationRoom.ChainsTest do
     test "update_network_information/2 with invalid data returns error changeset" do
       network_information = network_information_fixture()
       assert {:error, %Ecto.Changeset{}} = Chains.update_network_information(network_information, @invalid_attrs)
-      assert network_information == Chains.get_network_information!(network_information.id)
+      assert network_information == Chains.get_network_information!(network_information.chain_id)
     end
 
     test "delete_network_information/1 deletes the network_information" do
       network_information = network_information_fixture()
       assert {:ok, %NetworkInformation{}} = Chains.delete_network_information(network_information)
-      assert_raise Ecto.NoResultsError, fn -> Chains.get_network_information!(network_information.id) end
+      assert_raise Ecto.NoResultsError, fn -> Chains.get_network_information!(network_information.chain_id) end
     end
 
     test "change_network_information/1 returns a network_information changeset" do
@@ -71,10 +71,10 @@ defmodule SituationRoom.ChainsTest do
 
   describe "contract_monitors" do
     alias SituationRoom.Chains.ContractMonitor
-
+    alias SituationRoom.Chains.NetworkInformation
     import SituationRoom.ChainsFixtures
 
-    @invalid_attrs %{contract_address: nil, contract_name: nil, contract_origin_url: nil}
+    @invalid_attrs %{contract_address: nil, contract_name: nil, contract_origin_url: nil, chain_id: nil}
 
     test "list_contract_monitors/0 returns all contract_monitors" do
       contract_monitor = contract_monitor_fixture()
@@ -87,12 +87,17 @@ defmodule SituationRoom.ChainsTest do
     end
 
     test "create_contract_monitor/1 with valid data creates a contract_monitor" do
-      valid_attrs = %{contract_address: "some contract_address", contract_name: "some contract_name", contract_origin_url: "some contract_origin_url"}
+      valid_attrs_network = %{chain_id: 42, currency_symbol: "some currency_symbol", name: "some name", rpc_backup_endpoint: "some rpc_backup_endpoint", rpc_endpoint: "some rpc_endpoint", wss_backup_endpoint: "some wss_backup_endpoint", wss_endpoint: "some wss_endpoint"}
+
+      assert {:ok, %NetworkInformation{} = network_information} = Chains.create_network_information(valid_attrs_network)
+
+      valid_attrs = %{contract_address: "some contract_address", contract_name: "some contract_name", contract_origin_url: "some contract_origin_url", chain_id: network_information.chain_id}
 
       assert {:ok, %ContractMonitor{} = contract_monitor} = Chains.create_contract_monitor(valid_attrs)
       assert contract_monitor.contract_address == "some contract_address"
       assert contract_monitor.contract_name == "some contract_name"
       assert contract_monitor.contract_origin_url == "some contract_origin_url"
+      assert contract_monitor.chain_id == network_information.chain_id
     end
 
     test "create_contract_monitor/1 with invalid data returns error changeset" do
@@ -101,7 +106,7 @@ defmodule SituationRoom.ChainsTest do
 
     test "update_contract_monitor/2 with valid data updates the contract_monitor" do
       contract_monitor = contract_monitor_fixture()
-      update_attrs = %{contract_address: "some updated contract_address", contract_name: "some updated contract_name", contract_origin_url: "some updated contract_origin_url"}
+      update_attrs = %{contract_address: "some updated contract_address", contract_name: "some updated contract_name", contract_origin_url: "some updated contract_origin_url", chain_id: 42}
 
       assert {:ok, %ContractMonitor{} = contract_monitor} = Chains.update_contract_monitor(contract_monitor, update_attrs)
       assert contract_monitor.contract_address == "some updated contract_address"

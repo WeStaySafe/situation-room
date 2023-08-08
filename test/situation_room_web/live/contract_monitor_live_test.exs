@@ -4,9 +4,9 @@ defmodule SituationRoomWeb.ContractMonitorLiveTest do
   import Phoenix.LiveViewTest
   import SituationRoom.ChainsFixtures
 
-  @create_attrs %{contract_address: "some contract_address", contract_name: "some contract_name", contract_origin_url: "some contract_origin_url"}
-  @update_attrs %{contract_address: "some updated contract_address", contract_name: "some updated contract_name", contract_origin_url: "some updated contract_origin_url"}
-  @invalid_attrs %{contract_address: nil, contract_name: nil, contract_origin_url: nil}
+  @create_attrs %{contract_address: "some new contract_address", contract_name: "some contract_name", contract_origin_url: "some contract_origin_url", chain_id: 42}
+  @update_attrs %{contract_address: "some updated contract_address", contract_name: "some updated contract_name", contract_origin_url: "some updated contract_origin_url", chain_id: 42}
+  @invalid_attrs %{contract_address: nil, contract_name: nil, contract_origin_url: nil, chain_id: nil}
 
   defp create_contract_monitor(_) do
     contract_monitor = contract_monitor_fixture()
@@ -23,7 +23,7 @@ defmodule SituationRoomWeb.ContractMonitorLiveTest do
       assert html =~ contract_monitor.contract_address
     end
 
-    test "saves new contract_monitor", %{conn: conn} do
+    test "saves new contract_monitor", %{conn: conn, contract_monitor: contract_monitor} do
       {:ok, index_live, _html} = live(conn, ~p"/contract_monitors")
 
       assert index_live |> element("a", "New Contract monitor") |> render_click() =~

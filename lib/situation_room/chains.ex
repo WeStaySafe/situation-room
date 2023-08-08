@@ -35,7 +35,7 @@ defmodule SituationRoom.Chains do
       ** (Ecto.NoResultsError)
 
   """
-  def get_network_information!(id), do: Repo.get!(NetworkInformation, id)
+  def get_network_information!(chain_id), do: Repo.get!(NetworkInformation, chain_id)
 
   @doc """
   Creates a network_information.

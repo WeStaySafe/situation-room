@@ -6,8 +6,7 @@ defmodule SituationRoom.Chains.ContractMonitor do
     field :contract_address, :string
     field :contract_name, :string
     field :contract_origin_url, :string
-
-    belongs_to :network_information, SituationRoom.Chains.NetworkInformation, foreign_key: :chain_id
+    field :chain_id, :integer
     timestamps()
   end
 
@@ -16,5 +15,6 @@ defmodule SituationRoom.Chains.ContractMonitor do
     contract_monitor
     |> cast(attrs, [:contract_address, :contract_name, :contract_origin_url, :chain_id])
     |> validate_required([:contract_address, :contract_name, :contract_origin_url, :chain_id])
+    |> unique_constraint([:chain_id, :contract_address])
   end
 end
