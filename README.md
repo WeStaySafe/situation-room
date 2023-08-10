@@ -36,19 +36,13 @@ Monitor/Decision making crises center for smart contracts
   - [ ] Cronjob with quantum checking if we caught all the logs/events from the registered contracts
 
 #### Friday (short day)
-- [ ] Notifications/alerts
-  - [ ] Email first
-    - [ ] If someone initiates a transaction delay -> to the transaction initiator
-    - [ ] If delay is over without follow up action -> to the transaction initiator
-    - [ ] If someone does a transaction block vote -> to all registered/invested protocol members
-    - [ ] Result transaction block vote -> to all registered/invested protocol members
-    - [ ] If someone does a smart contract/protocol circuit breaker vote -> to all registered/invested protocol members
-    - [ ] Result smart contract/protocol circuit breaker vote -> to all registered/invested protocol members
-
-#### Saterday
 - [ ] Voting UI
   - [ ] Liveview voting
   - [ ] Consensus liveview visualisation (https://github.com/mindok/contex ?)
+
+#### Saterday
+- [ ] Create contract
+Time left? Try to implement worldcoin again
 
 #### Sunday Demo
 - [ ] Show delay flow
