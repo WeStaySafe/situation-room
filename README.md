@@ -19,12 +19,12 @@ Monitor/Decision making crises center for smart contracts
 - [x] Create routes with generators
 
 #### Tuesday
-- [ ] Create sign in flow 
-  - [ ] World app flow (https://hexdocs.pm/openid_connect/readme.html)
+- [x] Create sign in flow 
+- [ ] World app flow (Can't get it to work unfortunately, if time left try to implement it on profile page)
 
 #### Wednesday (short day)
 
-- [ ] Styling
+- [x] Styling
 
 ### Thursday
 - [x] Register chains (through ssh to machine and use context)
