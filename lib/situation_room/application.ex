@@ -19,7 +19,9 @@ defmodule SituationRoom.Application do
       # Start the Endpoint (http/https)
       SituationRoomWeb.Endpoint,
       # Start Oban
-      {Oban, Application.fetch_env!(:situation_room, Oban)}
+      {Oban, Application.fetch_env!(:situation_room, Oban)},
+      # Quantum Cron job
+      SituationRoom.Scheduler
       # Start a worker by calling: SituationRoom.Worker.start_link(arg)
       # {SituationRoom.Worker, arg}
     ]

@@ -51,7 +51,8 @@ defmodule SituationRoom.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:oban, "~> 2.15"}
+      {:oban, "~> 2.15"},
+      {:quantum, "~> 3.5"}
     ]
   end
 

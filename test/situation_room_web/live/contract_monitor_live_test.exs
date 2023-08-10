@@ -23,7 +23,7 @@ defmodule SituationRoomWeb.ContractMonitorLiveTest do
       assert html =~ contract_monitor.contract_address
     end
 
-    test "saves new contract_monitor", %{conn: conn, contract_monitor: contract_monitor} do
+    test "saves new contract_monitor", %{conn: conn} do
       {:ok, index_live, _html} = live(conn, ~p"/contract_monitors")
 
       assert index_live |> element("a", "New Contract monitor") |> render_click() =~

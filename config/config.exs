@@ -35,6 +35,12 @@ config :situation_room, Oban,
   plugins: [Oban.Plugins.Pruner],
   queues: [default: 10]
 
+config :situation_room, SituationRoom.Scheduler,
+  jobs: [
+    # Every second
+    {{:extended, "* * * * *"}, fn -> IO.inspect(Time.utc_now()) end},
+  ]
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",
