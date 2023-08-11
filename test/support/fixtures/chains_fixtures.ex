@@ -11,13 +11,12 @@ defmodule SituationRoom.ChainsFixtures do
     {:ok, network_information} =
       attrs
       |> Enum.into(%{
-        chain_id: 42,
-        currency_symbol: "some currency_symbol",
-        name: "some name",
-        rpc_backup_endpoint: "some rpc_backup_endpoint",
-        rpc_endpoint: "some rpc_endpoint",
-        wss_backup_endpoint: "some wss_backup_endpoint",
-        wss_endpoint: "some wss_endpoint"
+        chain_id: 1,
+        currency_symbol: "ETH",
+        name: "ethereum",
+        rpc_endpoint: "https://eth-mainnet.public.blastapi.io",
+        wss_endpoint: "wss://eth-mainnet.public.blastapi.io",
+        block_explorer: "https://etherscan.io/"
       })
       |> SituationRoom.Chains.create_network_information()
 
@@ -29,7 +28,7 @@ defmodule SituationRoom.ChainsFixtures do
   """
   def contract_monitor_fixture(attrs \\ %{}) do
     network_information = network_information_fixture()
-    
+
     {:ok, contract_monitor} =
       attrs
       |> Enum.into(%{

@@ -21,15 +21,14 @@ defmodule SituationRoom.ChainsTest do
     end
 
     test "create_network_information/1 with valid data creates a network_information" do
-      valid_attrs = %{chain_id: 42, currency_symbol: "some currency_symbol", name: "some name", rpc_backup_endpoint: "some rpc_backup_endpoint", rpc_endpoint: "some rpc_endpoint", wss_backup_endpoint: "some wss_backup_endpoint", wss_endpoint: "some wss_endpoint"}
+      valid_attrs = %{chain_id: 1, currency_symbol: "ETH", name: "some name", block_explorer: "some block_explorer", rpc_endpoint: "some rpc_endpoint", wss_endpoint: "some wss_endpoint"}
 
       assert {:ok, %NetworkInformation{} = network_information} = Chains.create_network_information(valid_attrs)
-      assert network_information.chain_id == 42
-      assert network_information.currency_symbol == "some currency_symbol"
+      assert network_information.chain_id == 1
+      assert network_information.currency_symbol == "ETH"
       assert network_information.name == "some name"
-      assert network_information.rpc_backup_endpoint == "some rpc_backup_endpoint"
+      assert network_information.block_explorer == "some block_explorer"
       assert network_information.rpc_endpoint == "some rpc_endpoint"
-      assert network_information.wss_backup_endpoint == "some wss_backup_endpoint"
       assert network_information.wss_endpoint == "some wss_endpoint"
     end
 
@@ -87,7 +86,7 @@ defmodule SituationRoom.ChainsTest do
     end
 
     test "create_contract_monitor/1 with valid data creates a contract_monitor" do
-      valid_attrs_network = %{chain_id: 42, currency_symbol: "some currency_symbol", name: "some name", rpc_backup_endpoint: "some rpc_backup_endpoint", rpc_endpoint: "some rpc_endpoint", wss_backup_endpoint: "some wss_backup_endpoint", wss_endpoint: "some wss_endpoint"}
+      valid_attrs_network = %{chain_id: 1, currency_symbol: "some currency_symbol", name: "some name", block_explorer: "some block explorer", rpc_endpoint: "some rpc_endpoint", wss_backup_endpoint: "some wss_backup_endpoint", wss_endpoint: "some wss_endpoint"}
 
       assert {:ok, %NetworkInformation{} = network_information} = Chains.create_network_information(valid_attrs_network)
 
@@ -106,7 +105,7 @@ defmodule SituationRoom.ChainsTest do
 
     test "update_contract_monitor/2 with valid data updates the contract_monitor" do
       contract_monitor = contract_monitor_fixture()
-      update_attrs = %{contract_address: "some updated contract_address", contract_name: "some updated contract_name", contract_origin_url: "some updated contract_origin_url", chain_id: 42}
+      update_attrs = %{contract_address: "some updated contract_address", contract_name: "some updated contract_name", contract_origin_url: "some updated contract_origin_url", chain_id: 1}
 
       assert {:ok, %ContractMonitor{} = contract_monitor} = Chains.update_contract_monitor(contract_monitor, update_attrs)
       assert contract_monitor.contract_address == "some updated contract_address"
