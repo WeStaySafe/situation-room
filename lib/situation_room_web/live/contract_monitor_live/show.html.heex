@@ -2,7 +2,7 @@
   Contract monitor <%= @contract_monitor.id %>
   <:subtitle>This is a contract_monitor record from your database.</:subtitle>
   <:actions>
-    <.link patch={~p"/contract_monitors/#{@contract_monitor}/show/edit"} phx-click={JS.push_focus()}>
+    <.link patch={~p"/chains/#{@chain_id}/contract_monitors/#{@contract_monitor}/show/edit"} phx-click={JS.push_focus()}>
       <.button>Edit contract_monitor</.button>
     </.link>
   </:actions>
@@ -14,15 +14,16 @@
   <:item title="Contract origin url"><%= @contract_monitor.contract_origin_url %></:item>
 </.list>
 
-<.back navigate={~p"/contract_monitors"}>Back to contract_monitors</.back>
+<.back navigate={~p"/chains/#{@chain_id}/contract_monitors"}>Back to contract_monitors</.back>
 
-<.modal :if={@live_action == :edit} id="contract_monitor-modal" show on_cancel={JS.patch(~p"/contract_monitors/#{@contract_monitor}")}>
+<.modal :if={@live_action == :edit} id="contract_monitor-modal" show on_cancel={JS.patch(~p"/chains/#{@chain_id}/contract_monitors/#{@contract_monitor}")}>
   <.live_component
     module={SituationRoomWeb.ContractMonitorLive.FormComponent}
     id={@contract_monitor.id}
     title={@page_title}
     action={@live_action}
+    chain_id={@chain_id}
     contract_monitor={@contract_monitor}
-    patch={~p"/contract_monitors/#{@contract_monitor}"}
+    patch={~p"/chains/#{@chain_id}/contract_monitors/#{@contract_monitor}"}
   />
 </.modal>

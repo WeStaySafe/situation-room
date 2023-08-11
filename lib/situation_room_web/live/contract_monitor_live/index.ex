@@ -5,7 +5,10 @@ defmodule SituationRoomWeb.ContractMonitorLive.Index do
   alias SituationRoom.Chains.ContractMonitor
 
   @impl true
-  def mount(_params, _session, socket) do
+  def mount(params = %{"chain_id" => chain_id}, _session, socket) do
+    socket = socket
+    |> assign(:chain_id, chain_id)
+
     {:ok, stream(socket, :contract_monitors, Chains.list_contract_monitors())}
   end
 
@@ -14,21 +17,24 @@ defmodule SituationRoomWeb.ContractMonitorLive.Index do
     {:noreply, apply_action(socket, socket.assigns.live_action, params)}
   end
 
-  defp apply_action(socket, :edit, %{"id" => id}) do
+  defp apply_action(socket, :edit, %{"id" => id, "chain_id" => chain_id}) do
     socket
     |> assign(:page_title, "Edit Contract monitor")
+    |> assign(:chain_id, chain_id)
     |> assign(:contract_monitor, Chains.get_contract_monitor!(id))
   end
 
-  defp apply_action(socket, :new, _params) do
+  defp apply_action(socket, :new, %{"chain_id" => chain_id}) do
     socket
     |> assign(:page_title, "New Contract monitor")
+    |> assign(:chain_id, chain_id)
     |> assign(:contract_monitor, %ContractMonitor{})
   end
 
-  defp apply_action(socket, :index, _params) do
+  defp apply_action(socket, :index, %{"chain_id" => chain_id}) do
     socket
     |> assign(:page_title, "Listing Contract monitors")
+    |> assign(:chain_id, chain_id)
     |> assign(:contract_monitor, nil)
   end
 

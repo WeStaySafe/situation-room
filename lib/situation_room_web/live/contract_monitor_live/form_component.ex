@@ -22,7 +22,6 @@ defmodule SituationRoomWeb.ContractMonitorLive.FormComponent do
         <.input field={@form[:contract_address]} type="text" label="Contract address" />
         <.input field={@form[:contract_name]} type="text" label="Contract name" />
         <.input field={@form[:contract_origin_url]} type="text" label="Contract origin url" />
-        <.input field={@form[:chain_id]} type="number" label="Chain ID" />
 
         <:actions>
           <.button phx-disable-with="Saving...">Save Contract monitor</.button>
@@ -72,7 +71,7 @@ defmodule SituationRoomWeb.ContractMonitorLive.FormComponent do
   end
 
   defp save_contract_monitor(socket, :new, contract_monitor_params) do
-    case Chains.create_contract_monitor(contract_monitor_params) do
+    case Chains.create_contract_monitor(Map.put(contract_monitor_params, "chain_id", socket.assigns.chain_id)) do
       {:ok, contract_monitor} ->
         notify_parent({:saved, contract_monitor})
 
