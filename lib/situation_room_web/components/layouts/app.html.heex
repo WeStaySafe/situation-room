@@ -1,27 +1,108 @@
 <header class="px-4 sm:px-6 lg:px-8">
   <div class="flex items-center justify-between border-b border-zinc-100 py-3 text-sm">
-    <div class="flex items-center gap-4">
+    <div class="flex justify-center items-start gap-4">
       <a href="/">
-        <img src={~p"/images/logo.svg"} width="36" />
+        <img class="rounded-full" src={~p"/images/logo.svg"} width="100" />
       </a>
-      <p class="bg-brand/5 text-brand rounded-full px-2 font-medium leading-6">
-        v<%= Application.spec(:phoenix, :vsn) %>
-      </p>
+        <div class="flex flex-col justify-center items-center mt-4">
+          <img class="rounded-full" src={~p"/images/optimism.svg"} width="55" />
+          <.link
+            href={~p"/chains/10/contract_monitors"}
+            class="text-[0.8125rem] leading-6  mt-3 font-semibold text-white hover:text-zinc-100"
+          >
+            Mainnet
+          </.link>
+          <.link
+            href={~p"/chains/420/contract_monitors"}
+            class="text-[0.8125rem] leading-6 mt-1 font-semibold text-white hover:text-zinc-100"
+          >
+            Testnet
+          </.link>
+        </div>
+        <div class="flex flex-col justify-center items-center mt-3">
+          <img class="rounded-full" src={~p"/images/base.svg"} width="53" />
+          <.link
+            href={~p"/chains/8453/contract_monitors"}
+            class="text-[0.8125rem] leading-6  mt-2 font-semibold text-white hover:text-zinc-100"
+          >
+            Mainnet
+          </.link>
+          <.link
+            href={~p"/chains/84531/contract_monitors"}
+            class="text-[0.8125rem] leading-6 mt-1 font-semibold text-white hover:text-zinc-100"
+          >
+            Testnet
+          </.link>
+        </div>
+          <div class="flex flex-col justify-center items-center mt-1">
+          <div class="flex items-center justify-center text-white text-lg">
+            <img class="rounded-full mr-1" src={~p"/images/zora.svg"} width="15" />
+            Zora
+          </div>
+          <.link
+            href={~p"/chains/7777777/contract_monitors"}
+            class="text-[0.8125rem] leading-6  mt-0.5 font-semibold text-white hover:text-zinc-100"
+          >
+            Mainnet
+          </.link>
+          <.link
+            href={~p"/chains/999/contract_monitors"}
+            class="text-[0.8125rem] leading-6 mt-1 font-semibold text-white hover:text-zinc-100"
+          >
+            Testnet
+          </.link>
+        </div>
+        <div class="flex flex-col justify-center items-center mt-2.5">
+          <img class="rounded-full" src={~p"/images/mode.svg"} width="52" />
+          <.link
+            href={~p"/chains/84531/contract_monitors"}
+            class="text-[0.8125rem] leading-6 mt-2 font-semibold text-white hover:text-zinc-100"
+          >
+            Testnet
+          </.link>
+        </div>
     </div>
-    <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
-      <a href="https://twitter.com/elixirphoenix" class="hover:text-zinc-700">
-        @elixirphoenix
-      </a>
-      <a href="https://github.com/phoenixframework/phoenix" class="hover:text-zinc-700">
-        GitHub
-      </a>
-      <a
-        href="https://hexdocs.pm/phoenix/overview.html"
-        class="rounded-lg bg-zinc-100 px-2 py-1 hover:bg-zinc-200/80"
-      >
-        Get Started <span aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
+    <ul class="relative z-10 flex items-center text-white gap-4 px-4 sm:px-6 lg:px-8 justify-end">
+      <%= if @current_user do %>
+        <li class="text-[0.8125rem] leading-6 ">
+          <%= @current_user.email %>
+        </li>
+        <li>
+          <.link
+            href={~p"/users/settings"}
+            class="text-[0.8125rem] leading-6  font-semibold hover:text-zinc-100"
+          >
+            Settings
+          </.link>
+        </li>
+        <li>
+          <.link
+            href={~p"/users/log_out"}
+            method="delete"
+            class="text-[0.8125rem] leading-6  font-semibold hover:text-zinc-700"
+          >
+            Log out
+          </.link>
+        </li>
+      <% else %>
+        <li>
+          <.link
+            href={~p"/users/register"}
+            class="text-[0.8125rem] leading-6  font-semibold hover:text-zinc-100"
+          >
+            Register
+          </.link>
+        </li>
+        <li>
+          <.link
+            href={~p"/users/log_in"}
+            class="text-[0.8125rem] leading-6  font-semibold hover:text-zinc-100"
+          >
+            Log in
+          </.link>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </header>
 <main class="px-4 py-20 sm:px-6 lg:px-8">
