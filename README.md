@@ -20,7 +20,6 @@ Monitor/Decision making crises center for smart contracts
 
 #### Tuesday
 - [x] Create sign in flow 
-- [ ] World app flow (Can't get it to work unfortunately, if time left try to implement it on profile page)
 
 #### Wednesday (short day)
 
@@ -28,20 +27,23 @@ Monitor/Decision making crises center for smart contracts
 
 ### Thursday
 - [x] Register chains (through ssh to machine and use context)
-- [ ] Register contract flow
-  - [ ] With events/logs
-  - [ ] Potentially with alerts if time left
-- [ ] Smart Contract event/log monitor/indexer
-  - [ ] Websocket flow with supervisor if websocket 
-  - [ ] Cronjob with quantum checking if we caught all the logs/events from the registered contracts
 
 #### Friday (short day)
+- [x] Route chains chain_id
+- [x] Network switcher
+
+#### Saterday
+- [ ] Create contract Foundry
+  - [ ] Delay
+  - [ ] Block
+  - [ ] Circuit Breaker
+- [ ] Register contract flow
+- [ ] Smart Contract event/log monitor/indexer
+  - [ ] Cronjob with quantum checking if we caught all the logs/events from the registered contracts
 - [ ] Voting UI
   - [ ] Liveview voting
   - [ ] Consensus liveview visualisation (https://github.com/mindok/contex ?)
 
-#### Saterday
-- [ ] Create contract
 Time left? Try to implement worldcoin again
 
 #### Sunday Demo
