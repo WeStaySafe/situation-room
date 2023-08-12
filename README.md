@@ -33,11 +33,20 @@ Monitor/Decision making crises center for smart contracts
 - [x] Network switcher
 
 #### Saterday
-- [ ] Create contract Foundry
-  - [ ] Delay
-  - [ ] Block
-  - [ ] Circuit Breaker
-- [ ] Register contract flow
+- [x] Create contract Foundry (https://github.com/WeStaySafe/blueprint_contract)
+  - [x] Delay
+  - [x] Block
+  - [x] Circuit Breaker
+  - [x] Deploy to testnet Chains 
+    - Optimism Goerli
+      - 0x5B1c3E19C766732B5f8446025baCd897aC10be4C 
+    - Mode Sepolia 
+      - 0x5B1c3E19C766732B5f8446025baCd897aC10be4C
+    - Zora Goerli
+      - 0x5D237030445C8A5b9868e7C399E0CBa48a436662
+    - Base Goerli
+      - 0x5D237030445C8A5b9868e7C399E0CBa48a436662
+- [x] Register contract
 - [ ] Smart Contract event/log monitor/indexer
   - [ ] Cronjob with quantum checking if we caught all the logs/events from the registered contracts
 - [ ] Voting UI
