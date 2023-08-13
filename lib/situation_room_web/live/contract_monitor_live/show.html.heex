@@ -7,6 +7,11 @@
     >
       <.button>Edit contract_monitor</.button>
     </.link>
+      <.link
+      href={"#{}"}
+    >
+      <.button class="bg-red-500 text-white">Circuit Break</.button>
+    </.link>
   </:actions>
 </.header>
 
@@ -19,11 +24,7 @@
 <.header>
   Logs
   <:actions>
-    <.link
-      href={"#{}"}
-    >
-      <.button class="bg-red-400 text-zinc-800">Circuit Break</.button>
-    </.link>
+
   </:actions>
 </.header>
 
@@ -39,10 +40,10 @@
         _ -> "Unknown"
       end}" %></:col>
   <:action>
-    <.link class="bg-yellow-400 text-zinc-800 px-2.5 py-2 rounded-md" href={"#{}"}>
+    <.link class="bg-zinc-600 text-white px-2.5 py-2 rounded-md" href={"#{}"}>
       Delay
     </.link>
-    <.link class="ml-2 bg-red-400 text-zinc-800 px-2.5 py-2 rounded-md" href={"#{}"}>
+    <.link class="ml-2 bg-red-500 text-white px-2.5 py-2 rounded-md" href={"#{}"}>
       Block
     </.link>
   </:action>
