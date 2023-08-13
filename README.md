@@ -51,6 +51,6 @@ Monitor/Decision making crises center for smart contracts
   - [x] Cronjob with quantum checking if we caught all the logs/events from the registered contracts
 
 #### Sunday Demo
-- [ ] Show delay flow
-- [ ] Show block flow
-- [ ] Show circuit breaker flow
+- [x] Improvements
+- [x] Video recorded
+
