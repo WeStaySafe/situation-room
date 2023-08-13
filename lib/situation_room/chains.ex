@@ -22,6 +22,23 @@ defmodule SituationRoom.Chains do
   end
 
   @doc """
+  Returns the list of network_informations with nested smart contract monitors.
+
+  ## Examples
+
+      iex> list_network_informations_with_monitors()
+      [%NetworkInformation{}, ...]
+
+  """
+  def list_network_informations_with_monitors do
+    query = from ni in NetworkInformation,
+      select: ni,
+      preload: [:contract_monitors]
+
+    Repo.all(query)
+  end
+
+  @doc """
   Gets a single network_information.
 
   Raises `Ecto.NoResultsError` if the Network information does not exist.
@@ -130,7 +147,7 @@ defmodule SituationRoom.Chains do
     query = from cm in ContractMonitor,
       where: cm.chain_id == ^chain_id,
       select: cm
-    
+
     Repo.all(query)
   end
 

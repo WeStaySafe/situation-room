@@ -37,8 +37,8 @@ config :situation_room, Oban,
 
 config :situation_room, SituationRoom.Scheduler,
   jobs: [
-    # Every second
-    {{:extended, "* * * * *"}, fn -> IO.inspect(Time.utc_now()) end},
+    # Every 2 seconds
+    {{:extended, "*/2"}, {SituationRoom.EventIndexer, :index, []}},
   ]
 
 # Configure esbuild (the version is required)
