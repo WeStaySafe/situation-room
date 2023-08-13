@@ -9,7 +9,6 @@ defmodule SituationRoomWeb.ContractMonitorLive.FormComponent do
     <div>
       <.header>
         <%= @title %>
-        <:subtitle>Use this form to manage contract_monitor records in your database.</:subtitle>
       </.header>
 
       <.simple_form

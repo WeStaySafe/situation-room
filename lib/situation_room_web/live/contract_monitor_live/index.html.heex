@@ -1,5 +1,5 @@
 <.header>
-  Listing Contract monitors
+  Contract monitors
   <:actions>
     <.link patch={~p"/chains/#{@chain_id}/contract_monitors/new"}>
       <.button>New Contract monitor</.button>
@@ -12,8 +12,10 @@
   rows={@streams.contract_monitors}
   row_click={fn {_id, contract_monitor} -> JS.navigate(~p"/chains/#{@chain_id}/contract_monitors/#{contract_monitor}") end}
 >
-  <:col :let={{_id, contract_monitor}} label="Contract address"><%= contract_monitor.contract_address %></:col>
   <:col :let={{_id, contract_monitor}} label="Contract name"><%= contract_monitor.contract_name %></:col>
+  <:col :let={{_id, contract_monitor}} label="Contract address">
+    <%= "#{String.slice(contract_monitor.contract_address, 0..3)}...#{String.slice(contract_monitor.contract_address, -4..-1)}" %>
+  </:col>
   <:col :let={{_id, contract_monitor}} label="Contract origin url"><%= contract_monitor.contract_origin_url %></:col>
   <:action :let={{_id, contract_monitor}}>
     <div class="sr-only">
