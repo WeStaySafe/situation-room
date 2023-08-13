@@ -47,13 +47,8 @@ Monitor/Decision making crises center for smart contracts
     - Base Goerli
       - 0x5D237030445C8A5b9868e7C399E0CBa48a436662
 - [x] Register contract
-- [ ] Smart Contract event/log monitor/indexer
-  - [ ] Cronjob with quantum checking if we caught all the logs/events from the registered contracts
-- [ ] Voting UI
-  - [ ] Liveview voting
-  - [ ] Consensus liveview visualisation (https://github.com/mindok/contex ?)
-
-Time left? Try to implement worldcoin again
+- [x] Smart Contract event/log monitor/indexer
+  - [x] Cronjob with quantum checking if we caught all the logs/events from the registered contracts
 
 #### Sunday Demo
 - [ ] Show delay flow
