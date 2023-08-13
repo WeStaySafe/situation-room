@@ -1,5 +1,5 @@
 <.header>
-  Contract monitor <%= @contract_monitor.id %>
+  <%= @contract_monitor.contract_name %>
   <:actions>
     <.link
       patch={~p"/chains/#{@chain_id}/contract_monitors/#{@contract_monitor}/show/edit"}
@@ -12,9 +12,42 @@
 
 <.list>
   <:item title="Contract address"><%= @contract_monitor.contract_address %></:item>
-  <:item title="Contract name"><%= @contract_monitor.contract_name %></:item>
   <:item title="Contract origin url"><%= @contract_monitor.contract_origin_url %></:item>
 </.list>
+<br>
+<br>
+<.header>
+  Logs
+  <:actions>
+    <.link
+      href={"#{}"}
+    >
+      <.button class="bg-red-400 text-zinc-800">Circuit Break</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<%= if length(@contract_monitor.logs) > 0 do %>
+  <.table id="logs" rows={Enum.reverse(@contract_monitor.logs)}>
+    <:col :let={log} label="Address">
+      <%= "#{String.slice(log.initiator_address, 0..3)}...#{String.slice(log.initiator_address, -4..-1)}" %>
+    </:col>
+    <:col :let={log} label="Action"><%= "#{
+      case log.topic do
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c" -> "Deposit"
+        "0xcbc7c7858f9ab8ce22517d4b910042540172c3d579222cf6716e222f341ca371" -> "WithrawRequest"
+        _ -> "Unknown"
+      end}" %></:col>
+  <:action>
+    <.link class="bg-yellow-400 text-zinc-800 px-2.5 py-2 rounded-md" href={"#{}"}>
+      Delay
+    </.link>
+    <.link class="ml-2 bg-red-400 text-zinc-800 px-2.5 py-2 rounded-md" href={"#{}"}>
+      Block
+    </.link>
+  </:action>
+  </.table>
+<% end %>
 
 <.back navigate={~p"/chains/#{@chain_id}/contract_monitors"}>Back to contract_monitors</.back>
 

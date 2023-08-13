@@ -14,7 +14,7 @@ defmodule SituationRoomWeb.ContractMonitorLive.Show do
      socket
      |> assign(:page_title, page_title(socket.assigns.live_action))
      |> assign(:chain_id, chain_id)
-     |> assign(:contract_monitor, Chains.get_contract_monitor!(id))}
+     |> assign(:contract_monitor, Chains.get_contract_monitor_with_logs!(id))}
   end
 
   defp page_title(:show), do: "Show Contract monitor"

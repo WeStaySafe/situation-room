@@ -169,6 +169,28 @@ defmodule SituationRoom.Chains do
   """
   def get_contract_monitor!(id), do: Repo.get!(ContractMonitor, id)
 
+
+    @doc """
+  Gets a single contract_monitor with transaction logs.
+
+  Raises `Ecto.NoResultsError` if the Contract monitor does not exist.
+
+  ## Examples
+
+      iex> get_contract_monitor_with_logs!(123)
+      %ContractMonitor{}
+
+      iex> get_contract_monitor_with_logs!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_contract_monitor_with_logs!(id) do
+    query = from cm in ContractMonitor,
+      where: cm.id == ^id,
+      preload: [:logs]
+
+    Repo.one!(query)
+  end
   @doc """
   Creates a contract_monitor.
 
