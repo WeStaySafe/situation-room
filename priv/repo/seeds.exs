@@ -21,7 +21,7 @@ SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
   :wss_endpoint => "wss://mainnet.optimism.io"
 })
 
-SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
+optimismgoerli = SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
   :chain_id => 420,
   :currency_symbol => "ETH",
   :name => "optimism-goerli",
@@ -29,6 +29,14 @@ SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
   :rpc_endpoint => "https://goerli.optimism.io",
   :wss_endpoint => "wss://goerli.optimism.io"
 })
+
+SituationRoom.Repo.insert!(%SituationRoom.Chains.ContractMonitor{
+  :contract_address => "0x5B1c3E19C766732B5f8446025baCd897aC10be4C",
+  :contract_name => "WeStaySafe Deposit Blueprint",
+  :contract_origin_url => "www.westaysafe.com",
+  :chain_id => optimismgoerli.chain_id
+})
+
 
 # Zora Mainnet and testnet Goerli
 SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
@@ -40,7 +48,7 @@ SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
   :wss_endpoint => "wss://rpc.zora.energy"
 })
 
-SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
+zoragoerli = SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
   :chain_id => 999,
   :currency_symbol => "ETH",
   :name => "zora-goerli",
@@ -48,6 +56,14 @@ SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
   :rpc_endpoint => "https://testnet.rpc.zora.energy",
   :wss_endpoint => "wss://testnet.rpc.zora.energy"
 })
+
+SituationRoom.Repo.insert!(%SituationRoom.Chains.ContractMonitor{
+  :contract_address => "0x5D237030445C8A5b9868e7C399E0CBa48a436662",
+  :contract_name => "WeStaySafe Deposit Blueprint",
+  :contract_origin_url => "www.westaysafe.com",
+  :chain_id => zoragoerli.chain_id
+})
+
 
 # Base Mainnet and testnet Goerli
 SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
@@ -60,7 +76,7 @@ SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
   :wss_endpoint => "wss://mainnet.base.org"
 })
 
-SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
+basegoerli = SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
   :chain_id => 84531,
   :currency_symbol => "ETH",
   :name => "base-goerli",
@@ -69,12 +85,27 @@ SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
   :wss_endpoint => "wss://goerli.base.org"
 })
 
+SituationRoom.Repo.insert!(%SituationRoom.Chains.ContractMonitor{
+  :contract_address => "0x5D237030445C8A5b9868e7C399E0CBa48a436662",
+  :contract_name => "WeStaySafe Deposit Blueprint",
+  :contract_origin_url => "www.westaysafe.com",
+  :chain_id => basegoerli.chain_id
+})
+
+
 # Mode testnet
-SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
+modesepolia = SituationRoom.Repo.insert!(%SituationRoom.Chains.NetworkInformation{
   :chain_id => 919,
   :currency_symbol => "ETH",
   :name => "mode",
   :block_explorer => "https://sepolia.explorer.mode.network/",
   :rpc_endpoint => "https://sepolia.mode.network",
   :wss_endpoint => "wss://sepolia.mode.network"
+})
+
+SituationRoom.Repo.insert!(%SituationRoom.Chains.ContractMonitor{
+  :contract_address => "0x5B1c3E19C766732B5f8446025baCd897aC10be4C",
+  :contract_name => "WeStaySafe Deposit Blueprint",
+  :contract_origin_url => "www.westaysafe.com",
+  :chain_id => modesepolia.chain_id
 })

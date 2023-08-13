@@ -118,6 +118,23 @@ defmodule SituationRoom.Chains do
   end
 
   @doc """
+  Returns the list of contract_monitors by chain_id.
+
+  ## Examples
+
+      iex> list_contract_monitors_by_chain_id()
+      [%ContractMonitor{}, ...]
+
+  """
+  def list_contract_monitors_by_chain_id(chain_id) do
+    query = from cm in ContractMonitor,
+      where: cm.chain_id == ^chain_id,
+      select: cm
+    
+    Repo.all(query)
+  end
+
+  @doc """
   Gets a single contract_monitor.
 
   Raises `Ecto.NoResultsError` if the Contract monitor does not exist.

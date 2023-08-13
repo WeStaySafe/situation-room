@@ -10,7 +10,7 @@ defmodule SituationRoomWeb.ContractMonitorLive.Index do
     |> assign(:chain_id, chain_id)
     |> assign(:current_user, nil)
 
-    {:ok, stream(socket, :contract_monitors, Chains.list_contract_monitors())}
+    {:ok, stream(socket, :contract_monitors, Chains.list_contract_monitors_by_chain_id(chain_id))}
   end
 
   @impl true
