@@ -5,7 +5,7 @@ defmodule SituationRoomWeb.ContractMonitorLive.Index do
   alias SituationRoom.Chains.ContractMonitor
 
   @impl true
-  def mount(params = %{"chain_id" => chain_id}, _session, socket) do
+  def mount(_params = %{"chain_id" => chain_id}, _session, socket) do
     socket = socket
     |> assign(:chain_id, chain_id)
     |> assign(:current_user, nil)
