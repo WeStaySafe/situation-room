@@ -4,63 +4,62 @@
       <a href="/">
         <img class="rounded-full" src={~p"/images/logo.svg"} width="100" />
       </a>
-        <div class="flex flex-col justify-center items-center mt-4">
-          <img class="rounded-full" src={~p"/images/optimism.svg"} width="55" />
-          <.link
-            href={~p"/chains/10/contract_monitors"}
-            class="text-[0.8125rem] leading-6  mt-3 font-semibold text-white hover:text-zinc-100"
-          >
-            Mainnet
-          </.link>
-          <.link
-            href={~p"/chains/420/contract_monitors"}
-            class="text-[0.8125rem] leading-6 mt-1 font-semibold text-white hover:text-zinc-100"
-          >
-            Testnet
-          </.link>
+      <div class="flex flex-col justify-center items-center mt-4">
+        <img class="rounded-full" src={~p"/images/optimism.svg"} width="55" />
+        <.link
+          href={~p"/chains/10/contract_monitors"}
+          class="text-[0.8125rem] leading-6  mt-3 font-semibold text-white hover:text-zinc-100"
+        >
+          Mainnet
+        </.link>
+        <.link
+          href={~p"/chains/420/contract_monitors"}
+          class="text-[0.8125rem] leading-6 mt-1 font-semibold text-white hover:text-zinc-100"
+        >
+          Testnet
+        </.link>
+      </div>
+      <div class="flex flex-col justify-center items-center mt-3">
+        <img class="rounded-full" src={~p"/images/base.svg"} width="53" />
+        <.link
+          href={~p"/chains/8453/contract_monitors"}
+          class="text-[0.8125rem] leading-6  mt-2 font-semibold text-white hover:text-zinc-100"
+        >
+          Mainnet
+        </.link>
+        <.link
+          href={~p"/chains/84531/contract_monitors"}
+          class="text-[0.8125rem] leading-6 mt-1 font-semibold text-white hover:text-zinc-100"
+        >
+          Testnet
+        </.link>
+      </div>
+      <div class="flex flex-col justify-center items-center mt-1">
+        <div class="flex items-center justify-center text-white text-lg">
+          <img class="rounded-full mr-1" src={~p"/images/zora.svg"} width="15" /> Zora
         </div>
-        <div class="flex flex-col justify-center items-center mt-3">
-          <img class="rounded-full" src={~p"/images/base.svg"} width="53" />
-          <.link
-            href={~p"/chains/8453/contract_monitors"}
-            class="text-[0.8125rem] leading-6  mt-2 font-semibold text-white hover:text-zinc-100"
-          >
-            Mainnet
-          </.link>
-          <.link
-            href={~p"/chains/84531/contract_monitors"}
-            class="text-[0.8125rem] leading-6 mt-1 font-semibold text-white hover:text-zinc-100"
-          >
-            Testnet
-          </.link>
-        </div>
-          <div class="flex flex-col justify-center items-center mt-1">
-          <div class="flex items-center justify-center text-white text-lg">
-            <img class="rounded-full mr-1" src={~p"/images/zora.svg"} width="15" />
-            Zora
-          </div>
-          <.link
-            href={~p"/chains/7777777/contract_monitors"}
-            class="text-[0.8125rem] leading-6  mt-0.5 font-semibold text-white hover:text-zinc-100"
-          >
-            Mainnet
-          </.link>
-          <.link
-            href={~p"/chains/999/contract_monitors"}
-            class="text-[0.8125rem] leading-6 mt-1 font-semibold text-white hover:text-zinc-100"
-          >
-            Testnet
-          </.link>
-        </div>
-        <div class="flex flex-col justify-center items-center mt-2.5">
-          <img class="rounded-full" src={~p"/images/mode.svg"} width="52" />
-          <.link
-            href={~p"/chains/84531/contract_monitors"}
-            class="text-[0.8125rem] leading-6 mt-2 font-semibold text-white hover:text-zinc-100"
-          >
-            Testnet
-          </.link>
-        </div>
+        <.link
+          href={~p"/chains/7777777/contract_monitors"}
+          class="text-[0.8125rem] leading-6  mt-0.5 font-semibold text-white hover:text-zinc-100"
+        >
+          Mainnet
+        </.link>
+        <.link
+          href={~p"/chains/999/contract_monitors"}
+          class="text-[0.8125rem] leading-6 mt-1 font-semibold text-white hover:text-zinc-100"
+        >
+          Testnet
+        </.link>
+      </div>
+      <div class="flex flex-col justify-center items-center mt-2.5">
+        <img class="rounded-full" src={~p"/images/mode.svg"} width="52" />
+        <.link
+          href={~p"/chains/84531/contract_monitors"}
+          class="text-[0.8125rem] leading-6 mt-2 font-semibold text-white hover:text-zinc-100"
+        >
+          Testnet
+        </.link>
+      </div>
     </div>
     <ul class="relative z-10 flex items-center text-white gap-4 px-4 sm:px-6 lg:px-8 justify-end">
       <%= if @current_user do %>

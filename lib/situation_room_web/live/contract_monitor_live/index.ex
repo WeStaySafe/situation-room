@@ -6,9 +6,10 @@ defmodule SituationRoomWeb.ContractMonitorLive.Index do
 
   @impl true
   def mount(_params = %{"chain_id" => chain_id}, _session, socket) do
-    socket = socket
-    |> assign(:chain_id, chain_id)
-    |> assign(:current_user, nil)
+    socket =
+      socket
+      |> assign(:chain_id, chain_id)
+      |> assign(:current_user, nil)
 
     {:ok, stream(socket, :contract_monitors, Chains.list_contract_monitors_by_chain_id(chain_id))}
   end
@@ -40,7 +41,10 @@ defmodule SituationRoomWeb.ContractMonitorLive.Index do
   end
 
   @impl true
-  def handle_info({SituationRoomWeb.ContractMonitorLive.FormComponent, {:saved, contract_monitor}}, socket) do
+  def handle_info(
+        {SituationRoomWeb.ContractMonitorLive.FormComponent, {:saved, contract_monitor}},
+        socket
+      ) do
     {:noreply, stream_insert(socket, :contract_monitors, contract_monitor)}
   end
 

@@ -31,9 +31,10 @@ defmodule SituationRoom.Chains do
 
   """
   def list_network_informations_with_monitors do
-    query = from ni in NetworkInformation,
-      select: ni,
-      preload: [:contract_monitors]
+    query =
+      from ni in NetworkInformation,
+        select: ni,
+        preload: [:contract_monitors]
 
     Repo.all(query)
   end
@@ -144,9 +145,10 @@ defmodule SituationRoom.Chains do
 
   """
   def list_contract_monitors_by_chain_id(chain_id) do
-    query = from cm in ContractMonitor,
-      where: cm.chain_id == ^chain_id,
-      select: cm
+    query =
+      from cm in ContractMonitor,
+        where: cm.chain_id == ^chain_id,
+        select: cm
 
     Repo.all(query)
   end

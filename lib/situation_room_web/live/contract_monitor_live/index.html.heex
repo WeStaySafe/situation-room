@@ -10,18 +10,30 @@
 <.table
   id="contract_monitors"
   rows={@streams.contract_monitors}
-  row_click={fn {_id, contract_monitor} -> JS.navigate(~p"/chains/#{@chain_id}/contract_monitors/#{contract_monitor}") end}
+  row_click={
+    fn {_id, contract_monitor} ->
+      JS.navigate(~p"/chains/#{@chain_id}/contract_monitors/#{contract_monitor}")
+    end
+  }
 >
-  <:col :let={{_id, contract_monitor}} label="Contract name"><%= contract_monitor.contract_name %></:col>
+  <:col :let={{_id, contract_monitor}} label="Contract name">
+    <%= contract_monitor.contract_name %>
+  </:col>
   <:col :let={{_id, contract_monitor}} label="Contract address">
     <%= "#{String.slice(contract_monitor.contract_address, 0..3)}...#{String.slice(contract_monitor.contract_address, -4..-1)}" %>
   </:col>
-  <:col :let={{_id, contract_monitor}} label="Contract origin url"><%= contract_monitor.contract_origin_url %></:col>
+  <:col :let={{_id, contract_monitor}} label="Contract origin url">
+    <%= contract_monitor.contract_origin_url %>
+  </:col>
   <:action :let={{_id, contract_monitor}}>
     <div class="sr-only">
-      <.link navigate={~p"/chains/#{@chain_id}/contract_monitors/#{contract_monitor}"}>Show</.link>
+      <.link navigate={~p"/chains/#{@chain_id}/contract_monitors/#{contract_monitor}"}>
+        Show
+      </.link>
     </div>
-    <.link patch={~p"/chains/#{@chain_id}/contract_monitors/#{contract_monitor}/edit"}>Edit</.link>
+    <.link patch={~p"/chains/#{@chain_id}/contract_monitors/#{contract_monitor}/edit"}>
+      Edit
+    </.link>
   </:action>
   <:action :let={{id, contract_monitor}}>
     <.link
@@ -33,7 +45,12 @@
   </:action>
 </.table>
 
-<.modal :if={@live_action in [:new, :edit]} id="contract_monitor-modal" show on_cancel={JS.patch(~p"/chains/#{@chain_id}/contract_monitors")}>
+<.modal
+  :if={@live_action in [:new, :edit]}
+  id="contract_monitor-modal"
+  show
+  on_cancel={JS.patch(~p"/chains/#{@chain_id}/contract_monitors")}
+>
   <.live_component
     module={SituationRoomWeb.ContractMonitorLive.FormComponent}
     id={@contract_monitor.id || :new}

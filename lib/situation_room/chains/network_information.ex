@@ -19,8 +19,24 @@ defmodule SituationRoom.Chains.NetworkInformation do
   @doc false
   def changeset(network_information, attrs) do
     network_information
-    |> cast(attrs, [:chain_id, :currency_symbol, :name, :block_explorer, :rpc_endpoint, :rpc_backup_endpoint, :wss_endpoint, :wss_backup_endpoint])
-    |> validate_required([:chain_id, :currency_symbol, :name, :block_explorer, :rpc_endpoint, :wss_endpoint])
+    |> cast(attrs, [
+      :chain_id,
+      :currency_symbol,
+      :name,
+      :block_explorer,
+      :rpc_endpoint,
+      :rpc_backup_endpoint,
+      :wss_endpoint,
+      :wss_backup_endpoint
+    ])
+    |> validate_required([
+      :chain_id,
+      :currency_symbol,
+      :name,
+      :block_explorer,
+      :rpc_endpoint,
+      :wss_endpoint
+    ])
     |> unique_constraint(:chain_id)
   end
 end

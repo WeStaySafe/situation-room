@@ -4,8 +4,16 @@ defmodule SituationRoomWeb.ContractMonitorLiveTest do
   import Phoenix.LiveViewTest
   import SituationRoom.ChainsFixtures
 
-  @create_attrs %{contract_address: "some new contract_address", contract_name: "some contract_name", contract_origin_url: "some contract_origin_url"}
-  @update_attrs %{contract_address: "some updated contract_address", contract_name: "some updated contract_name", contract_origin_url: "some updated contract_origin_url"}
+  @create_attrs %{
+    contract_address: "some new contract_address",
+    contract_name: "some contract_name",
+    contract_origin_url: "some contract_origin_url"
+  }
+  @update_attrs %{
+    contract_address: "some updated contract_address",
+    contract_name: "some updated contract_name",
+    contract_origin_url: "some updated contract_origin_url"
+  }
   @invalid_attrs %{contract_address: nil, contract_name: nil, contract_origin_url: nil}
 
   defp create_contract_monitor(_) do
@@ -20,7 +28,8 @@ defmodule SituationRoomWeb.ContractMonitorLiveTest do
       {:ok, _index_live, html} = live(conn, ~p"/chains/1/contract_monitors")
 
       assert html =~ "Listing Contract monitors"
-      assert html =~ contract_monitor.contract_address
+      assert html =~ String.slice(contract_monitor.contract_address, 0..4)
+      assert html =~ String.slice(contract_monitor.contract_address, -4..-1)
     end
 
     test "saves new contract_monitor", %{conn: conn} do
@@ -43,13 +52,14 @@ defmodule SituationRoomWeb.ContractMonitorLiveTest do
 
       html = render(index_live)
       assert html =~ "Contract monitor created successfully"
-      assert html =~ "some contract_address"
     end
 
     test "updates contract_monitor in listing", %{conn: conn, contract_monitor: contract_monitor} do
       {:ok, index_live, _html} = live(conn, ~p"/chains/1/contract_monitors")
 
-      assert index_live |> element("#contract_monitors-#{contract_monitor.id} a", "Edit") |> render_click() =~
+      assert index_live
+             |> element("#contract_monitors-#{contract_monitor.id} a", "Edit")
+             |> render_click() =~
                "Edit Contract monitor"
 
       assert_patch(index_live, ~p"/chains/1/contract_monitors/#{contract_monitor}/edit")
@@ -66,13 +76,15 @@ defmodule SituationRoomWeb.ContractMonitorLiveTest do
 
       html = render(index_live)
       assert html =~ "Contract monitor updated successfully"
-      assert html =~ "some updated contract_address"
     end
 
     test "deletes contract_monitor in listing", %{conn: conn, contract_monitor: contract_monitor} do
       {:ok, index_live, _html} = live(conn, ~p"/chains/1/contract_monitors")
 
-      assert index_live |> element("#contract_monitors-#{contract_monitor.id} a", "Delete") |> render_click()
+      assert index_live
+             |> element("#contract_monitors-#{contract_monitor.id} a", "Delete")
+             |> render_click()
+
       refute has_element?(index_live, "#contract_monitors-#{contract_monitor.id}")
     end
   end
@@ -87,7 +99,10 @@ defmodule SituationRoomWeb.ContractMonitorLiveTest do
       assert html =~ contract_monitor.contract_address
     end
 
-    test "updates contract_monitor within modal", %{conn: conn, contract_monitor: contract_monitor} do
+    test "updates contract_monitor within modal", %{
+      conn: conn,
+      contract_monitor: contract_monitor
+    } do
       {:ok, show_live, _html} = live(conn, ~p"/chains/1/contract_monitors/#{contract_monitor}")
 
       assert show_live |> element("a", "Edit") |> render_click() =~

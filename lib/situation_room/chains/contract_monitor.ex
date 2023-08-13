@@ -8,6 +8,8 @@ defmodule SituationRoom.Chains.ContractMonitor do
     field :contract_origin_url, :string
     field :chain_id, :integer
     timestamps()
+
+    has_many :logs, SituationRoom.Transactions.Log, foreign_key: :contract_monitor_id
   end
 
   @doc false

@@ -1,7 +1,10 @@
 <.header>
   Contract monitor <%= @contract_monitor.id %>
   <:actions>
-    <.link patch={~p"/chains/#{@chain_id}/contract_monitors/#{@contract_monitor}/show/edit"} phx-click={JS.push_focus()}>
+    <.link
+      patch={~p"/chains/#{@chain_id}/contract_monitors/#{@contract_monitor}/show/edit"}
+      phx-click={JS.push_focus()}
+    >
       <.button>Edit contract_monitor</.button>
     </.link>
   </:actions>
@@ -15,7 +18,12 @@
 
 <.back navigate={~p"/chains/#{@chain_id}/contract_monitors"}>Back to contract_monitors</.back>
 
-<.modal :if={@live_action == :edit} id="contract_monitor-modal" show on_cancel={JS.patch(~p"/chains/#{@chain_id}/contract_monitors/#{@contract_monitor}")}>
+<.modal
+  :if={@live_action == :edit}
+  id="contract_monitor-modal"
+  show
+  on_cancel={JS.patch(~p"/chains/#{@chain_id}/contract_monitors/#{@contract_monitor}")}
+>
   <.live_component
     module={SituationRoomWeb.ContractMonitorLive.FormComponent}
     id={@contract_monitor.id}
