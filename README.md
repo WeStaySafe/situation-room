@@ -8,6 +8,8 @@
 
 Your community situation room to delay/block shady transaction and prevent hacks/rug pulls!
 
+![WeStaySafe Dashboard](https://westaysafe.com/images/screenshot-situation-room.jpg)
+
 ## Features 🤓
 
 - Easy to add your chain(s) network information
