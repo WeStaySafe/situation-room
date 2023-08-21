@@ -1,56 +1,55 @@
-# Situation Room
+> [ETH Global Superhack judges should review this branch!](https://github.com/WeStaySafe/situation-room/tree/eth-global-superhack)
 
-Monitor/Decision making crises center for smart contracts
+> **👋 We are looking for unlaunched projects that want to use this software from the start when building a community!👋**
 
-### Roadmap
+![WeStaySafe Logo](https://westaysafe.com/favicon/android-chrome-192x192.png)
 
-#### Sunday
-- [x] Setup westaysafe.com
-  - [x] Setup postgres on neon.tech
-  - [x] Setup redis on upstash (created a redis db, but didn't make it available yet in code -> only if needed)
-  - [x] Setup phoenix project on fly
-  - [x] Setup domain westaysafe.com pointing to fly
+# WeStaySafe - Situation Room 🤝
 
-#### Monday
-- [x] Favicon
-- [x] Tailwind setup 
-- [x] Install setup Oban 
-- [x] Create data model with generators
-- [x] Create routes with generators
+Your community situation room to delay/block shady transaction and prevent hacks/rug pulls!
 
-#### Tuesday
-- [x] Create sign in flow 
+## Features 🤓
 
-#### Wednesday (short day)
+- Easy to add your chain(s) network information
+- Easy to add contract monitors
+- Real-time dashboard for monitoring transactions
+- Indexer for contract logs
+- Notification alerts for your community (WIP)
 
-- [x] Styling
+## How to deploy 🚀
 
-### Thursday
-- [x] Register chains (through ssh to machine and use context)
+1. Clone/Fork repository
+2. Create a fly.io account
+3. Run the following command from the root: `fly launch`
 
-#### Friday (short day)
-- [x] Route chains chain_id
-- [x] Network switcher
+## Prerequisites for running this locally 💻
+- Elixir should be installed, if not check: https://elixir-lang.org/install.html
+- Phoenix should be installed, if not check: https://hexdocs.pm/phoenix/installation.html
+- NodeJS should be installed, if not check: https://nodejs.org/en/download
+- Postgres should be installed if not check
+   - for MacOS: https://postgresapp.com/ 
+   - for Windows: https://www.postgresql.org/download/windows/
+   - for Linux: https://www.postgresql.org/download/
 
-#### Saterday
-- [x] Create contract Foundry (https://github.com/WeStaySafe/blueprint_contract)
-  - [x] Delay
-  - [x] Block
-  - [x] Circuit Breaker
-  - [x] Deploy to testnet Chains 
-    - Optimism Goerli
-      - 0x5B1c3E19C766732B5f8446025baCd897aC10be4C 
-    - Mode Sepolia 
-      - 0x5B1c3E19C766732B5f8446025baCd897aC10be4C
-    - Zora Goerli
-      - 0x5D237030445C8A5b9868e7C399E0CBa48a436662
-    - Base Goerli
-      - 0x5D237030445C8A5b9868e7C399E0CBa48a436662
-- [x] Register contract
-- [x] Smart Contract event/log monitor/indexer
-  - [x] Cronjob with quantum checking if we caught all the logs/events from the registered contracts
+## Install 🔧
 
-#### Sunday Demo
-- [x] Improvements
-- [x] Video recorded
+```
+mix setup 
+```
+
+## Run the software locally 💻
+
+```
+mix phx.server
+```
+
+Or if you like to have the Elixir REPL and run the server:
+
+```
+iex -S mix phx.server
+```
+
+## Contributing 🦸‍♂️🦸‍♀️
+
+If you have any suggestions/improvements/feedback that is great! Create an issue, a pull request or whatever you prefer! 
 
