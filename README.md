@@ -2,8 +2,6 @@
 
 > **👋 We are looking for unlaunched projects that want to use this software from the start when building a community!👋**
 
-![WeStaySafe Logo](https://westaysafe.com/favicon/android-chrome-192x192.png)
-
 # WeStaySafe - Situation Room 🤝
 
 WeStaySafe Situation room is a monitoring/intervention security platform where the community can check/delay and block malicious smart contract transactions or even circuit break the protocol.
@@ -37,19 +35,19 @@ In case of a serious hack the community has the ability to circuit-break the pro
    - for Windows: https://www.postgresql.org/download/windows/
    - for Linux: https://www.postgresql.org/download/
 
-## Install 🔧
+### Install 🔧
 
 ```
 mix setup 
 ```
 
-## Run the software locally 💻
+### Run the software locally 💻
 
 ```
 mix phx.server
 ```
 
-Or if you like to have the Elixir REPL and run the server:
+### Run the software locally with Elixir REPL 💻
 
 ```
 iex -S mix phx.server
