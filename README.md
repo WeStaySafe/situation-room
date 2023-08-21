@@ -6,7 +6,11 @@
 
 # WeStaySafe - Situation Room 🤝
 
-WeStaySafe Situation room is a monitoring/intervention security platform where the community can check/delay and block shady smart contract transactions or even circuit break the protocol. We have a real-time dashboard to see all incoming transactions. These transactions are time-delayed and this gives the community the chance to delay/block them if they are malicious against the protocol. In case of serious hack the community has the ability to circuit-break the protocol to prevent the loss of funds/assets. If there is nothing wrong with a transaction it is only time delayed and the community member can withdraw their funds. This will prevent almost all hacks if the smart contract withdrawal code is secure and the community is fast enough to stop the attacker. 
+WeStaySafe Situation room is a monitoring/intervention security platform where the community can check/delay and block malicious smart contract transactions or even circuit break the protocol.
+
+We have a real-time dashboard to see all incoming transactions. These transactions are time-delayed and this gives the community the chance to delay/block them if they are malicious against the protocol. 
+
+In case of a serious hack the community has the ability to circuit-break the protocol to prevent the loss of funds/assets. If there is nothing wrong with a transaction it is only time delayed and the community member can withdraw their funds. This will prevent almost all hacks if the smart contract withdrawal code is secure and the community is fast enough to stop the attacker. 
 
 ![WeStaySafe Dashboard](https://westaysafe.com/images/screenshot-situation-room.jpg)
 
