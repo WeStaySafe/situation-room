@@ -54,3 +54,4 @@ Monitor/Decision making crises center for smart contracts
 - [x] Improvements
 - [x] Video recorded
 
+ 
