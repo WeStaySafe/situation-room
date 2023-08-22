@@ -53,7 +53,8 @@ defmodule SituationRoom.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:oban, "~> 2.15"},
       {:quantum, "~> 3.5"},
-      {:req, "~> 0.3.11"}
+      {:req, "~> 0.3.11"},
+      {:sobelow, "~> 0.13", only: :dev}
     ]
   end
 
