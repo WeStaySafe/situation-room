@@ -1,5 +1,3 @@
-> [ETH Global Superhack judges should review this branch!](https://github.com/WeStaySafe/situation-room/tree/eth-global-superhack)
-
 > **👋 We are looking for unlaunched projects that want to use this software from the start when building a community!👋**
 
 # WeStaySafe - Situation Room 🤝
